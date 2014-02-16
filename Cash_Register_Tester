@@ -1,0 +1,17 @@
+
+public class CashRegisterTester 
+{
+	public static void main(String args[])
+	{
+		CashRegister register = new CashRegister();
+		
+		register.recordPurchase(20.37);
+		register.enterDollars(20);
+		register.enterQuarters(2);
+		int itemAmount = register.getItemCount();
+		System.out.println(itemAmount); //prints amount of items purchased
+		
+		double change = register.giveChange();
+		System.out.println(change); //prints amount of change given
+	}
+}
