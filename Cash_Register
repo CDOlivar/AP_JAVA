@@ -1,0 +1,84 @@
+public class CashRegister 
+{
+	
+	private double purchase;
+	private double payment;
+	private int numberOfItems;
+	
+	public CashRegister()
+	{
+		purchase = 0;
+		payment = 0;
+		numberOfItems= 0;
+	}
+	
+	public void recordPurchase(double amount)
+	{
+		double newTotal = purchase + amount;
+		purchase = newTotal;
+		
+		numberOfItems ++;
+	}
+	
+	/**
+	 * Returns amount of change that should be given
+	 * resets 'purchase', 'payment', and 'number of items' back to 0
+	 */
+	public double giveChange()
+	{
+		double change = payment - purchase;
+		purchase = 0;
+		payment = 0;
+		numberOfItems = 0;
+		return change;
+	}
+	
+	public int getItemCount()
+	{
+		return numberOfItems;
+	}
+	
+	
+	public void enterPayment(double amount)
+	{
+		payment += amount;
+	}
+	
+	public void enterDollars(double amount)
+	{
+		double valueOfDollars = amount * DOLLAR_VALUE;
+		payment += valueOfDollars; 
+	}
+	
+	public void enterQuarters(double amount)
+	{
+		double valueOfQuarters = amount * QUARTER_VALUE;
+		payment += valueOfQuarters; 
+	}
+	
+	public void enterDimes(double amount)
+	{
+		double valueOfDimes = amount * DIME_VALUE;
+		payment += valueOfDimes; 
+	}
+	
+	public void enterNickels(double amount)
+	{
+		double valueOfNickels = amount * NICKEL_VALUE;
+		payment += valueOfNickels; 
+	}
+	
+	public void enterPennies(double amount)
+	{
+		double valueOfPennies = amount * PENNY_VALUE;
+		payment += valueOfPennies; 
+	}
+	
+	final double DOLLAR_VALUE = 1;
+	final double QUARTER_VALUE = .25;
+	final double DIME_VALUE = .1;
+	final double NICKEL_VALUE = .05;
+	final double PENNY_VALUE = .01;
+
+	
+}
