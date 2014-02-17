@@ -1,0 +1,19 @@
+  import java.util.Scanner;
+
+public class Hypotenuse
+{
+  public static void main(String ags[])
+  {
+    Scanner d = new Scanner(System.in);
+    
+    double sideA, sideB, sideC;
+    System.out.println("please type in the first leg of your triangle");
+    sideA = d.nextDouble();
+    System.out.println("please type in the second leg of your triangle");
+    sideB = d.nextDouble();
+    
+    sideC = (sideA * sideA) + (sideB * sideB);
+    double answer = Math.sqrt(sideC);
+    System.out.println(answer);
+  }
+}
