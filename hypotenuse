@@ -21,7 +21,7 @@ public class squareDimensions
 	     
 	     System.out.println("your hypotenuse is " + hypotenuse
 	    		 + "\n your perimeter is " + perimeter
-	    		 + "\n your are is " + area);
+	    		 + "\n your area is " + area);
 	     
 	   }
 	 
