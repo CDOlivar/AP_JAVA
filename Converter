@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Converter 
+{
+	public static void main(String args[])
+	{
+		Scanner meters = new Scanner(System.in);
+		
+		double miles, feet, inches;
+		System.out.println("Please type the amount of meters");
+		double metersAmount = meters.nextDouble();
+		System.out.println("Please choose what to convert meters to by typing a number. \n" +
+				"1. Miles \n" +
+				"2. Feet \n" +
+				"3. Inches");
+		
+		
+	}
+	
+	public double metersToMiles(double amount)
+	{
+		double converted = amount / METERS_TO_MILES;
+		return converted;
+	}
+	
+	public double metersToFeet(double amount)
+	{
+		double converted = amount * METERS_TO_FEET;
+		return converted;
+	}
+	
+	public double metersToInches(double amount)
+	{
+		double converted = amount * METERS_TO_INCHES;
+		return converted;
+	}
+	
+	private double METERS_TO_MILES = 0.000621371;
+	private double METERS_TO_FEET = 3.28084;
+	private double METERS_TO_INCHES = 39.3701;
+}
