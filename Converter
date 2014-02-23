@@ -1,41 +1,44 @@
 import java.util.Scanner;
 
-public class Converter 
+public class ConverterTester 
 {
+	public static final double METERS_TO_MILES = 0.000621371;
+	public static final double METERS_TO_FEET = 3.28084;
+	public static final double METERS_TO_INCHES = 39.3701;
+	
 	public static void main(String args[])
 	{
 		Scanner meters = new Scanner(System.in);
 		
-		double miles, feet, inches;
-		System.out.println("Please type the amount of meters");
-		double metersAmount = meters.nextDouble();
-		System.out.println("Please choose what to convert meters to by typing a number. \n" +
-				"1. Miles \n" +
-				"2. Feet \n" +
-				"3. Inches");
+		boolean answer = false;
+		while(answer == false)
+		{
+			System.out.println("Type in the amount of meters");
+			double amountOfMeters = meters.nextDouble();
+			System.out.println("Type 1 to convert to miles \n"
+					+ "Type 2 to convert to feet \n" 
+					+ "Type 3 to convert to inches");
+				double choice = meters.nextInt();
 		
-		
+				if(choice == 1)
+				{
+					answer = true;
+					System.out.println(amountOfMeters * METERS_TO_MILES);
+				}
+				else if(choice == 2)
+				{
+					answer = true;
+					System.out.println(amountOfMeters * METERS_TO_FEET);
+				}
+				else if(choice == 3)
+				{
+					answer = true;
+					System.out.println(amountOfMeters * METERS_TO_INCHES);
+				}
+				else
+				{
+					System.out.println("Incorrect Input");
+				}
+		}
 	}
-	
-	public double metersToMiles(double amount)
-	{
-		double converted = amount / METERS_TO_MILES;
-		return converted;
-	}
-	
-	public double metersToFeet(double amount)
-	{
-		double converted = amount * METERS_TO_FEET;
-		return converted;
-	}
-	
-	public double metersToInches(double amount)
-	{
-		double converted = amount * METERS_TO_INCHES;
-		return converted;
-	}
-	
-	private double METERS_TO_MILES = 0.000621371;
-	private double METERS_TO_FEET = 3.28084;
-	private double METERS_TO_INCHES = 39.3701;
 }
