@@ -1,0 +1,22 @@
+public class GiveChange
+{
+ public static void main(String args[])
+ {
+	 CashRegister register = new CashRegister();
+	 register.recordPurchase(8.37);
+	 register.enterPayment(10, 0, 0, 0, 0);
+	 System.out.println("You should give:"
+	 		+ "\n");
+	 
+	 
+	 double dollars = register.returnDollars();
+	 double quarters = register.returnQuarters();
+	 double dimes = register.returnDimes();
+	 double nickels = register.returnNickels();
+	 double pennies = register.returnPennies();
+	 
+	 System.out.println(""
+	 		+ "\nAll of which should add up to: "+register.giveChange());
+	 
+ }
+}
