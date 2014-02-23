@@ -1,9 +1,11 @@
 public class CashRegister 
 {
-	
+
 	private double purchase;
 	private double payment;
 	private int numberOfItems;
+	private double remainder;
+	private double constant;
 	
 	public CashRegister()
 	{
@@ -12,13 +14,26 @@ public class CashRegister
 		numberOfItems= 0;
 	}
 	
+	public CashRegister(double amount)
+	{
+		purchase += amount;
+		payment = 0;
+		numberOfItems= 0;
+	}
+	
+	public CashRegister(double dol, double quar, double dim, double nic, double pen)
+	{
+		purchase = (dol * DOLLAR_VALUE) + (quar * QUARTER_VALUE) + (dim * DIME_VALUE) + (nic * NICKEL_VALUE) + (pen * PENNY_VALUE);
+	}
+	
 	public void recordPurchase(double amount)
 	{
 		double newTotal = purchase + amount;
 		purchase = newTotal;
-		
+
 		numberOfItems ++;
 	}
+	
 	
 	/**
 	 * Returns amount of change that should be given
@@ -27,51 +42,124 @@ public class CashRegister
 	public double giveChange()
 	{
 		double change = payment - purchase;
-		purchase = 0;
-		payment = 0;
-		numberOfItems = 0;
+		int changeInt = (int) (change * 100);
+		change = (double) changeInt / 100;
+		resetCashRegister();
 		return change;
 	}
 	
+	public void resetCashRegister()
+	{
+		purchase = 0;
+		payment = 0;
+		numberOfItems = 0;
+		constant = 0;
+		remainder = 0;
+	}
+
 	public int getItemCount()
 	{
 		return numberOfItems;
 	}
-	
-	
+
+
 	public void enterPayment(double amount)
 	{
 		payment += amount;
 	}
 	
+	public void enterPayment(double dol, double quar, double dim, double nic, double pen)
+	{
+		payment += (dol * DOLLAR_VALUE) + (quar * QUARTER_VALUE) + (dim * DIME_VALUE) + (nic * NICKEL_VALUE) + (pen * PENNY_VALUE);
+	}
+
 	public void enterDollars(double amount)
 	{
 		double valueOfDollars = amount * DOLLAR_VALUE;
 		payment += valueOfDollars; 
 	}
-	
+
 	public void enterQuarters(double amount)
 	{
 		double valueOfQuarters = amount * QUARTER_VALUE;
 		payment += valueOfQuarters; 
 	}
-	
+
 	public void enterDimes(double amount)
 	{
 		double valueOfDimes = amount * DIME_VALUE;
 		payment += valueOfDimes; 
 	}
-	
+
 	public void enterNickels(double amount)
 	{
 		double valueOfNickels = amount * NICKEL_VALUE;
 		payment += valueOfNickels; 
 	}
-	
+
 	public void enterPennies(double amount)
 	{
 		double valueOfPennies = amount * PENNY_VALUE;
 		payment += valueOfPennies; 
+	}
+	
+	public double returnDollars()
+	{
+		double change = payment - purchase;
+		int changeInt = (int) (change * 100);
+		change = (double) changeInt / 100;
+		
+		remainder = change % 1;
+		remainder = Math.round(remainder * 100);
+		remainder /= 100;
+		double amountOfDollars = Math.floor(change);
+		System.out.println("dollars: "+amountOfDollars);
+		return amountOfDollars;
+	}
+	
+	public double returnQuarters()
+	{	
+		double newRemainder = remainder % QUARTER_VALUE;
+		double numberOfQuarters = (remainder - newRemainder) / QUARTER_VALUE;
+		System.out.println("quarters: "+ numberOfQuarters);
+		if(newRemainder > 0)
+			{
+				remainder = newRemainder;
+			}	
+		return numberOfQuarters;
+	}
+	
+	public double returnDimes()
+	{
+		double newRemainder = remainder % DIME_VALUE;
+		double numberOfDimes = (remainder - newRemainder) / DIME_VALUE;
+		System.out.println("dimes: "+ numberOfDimes);
+		if(newRemainder > 0)
+		{
+			remainder = newRemainder;
+		}	
+		return numberOfDimes;
+	}
+	
+	public double returnNickels()
+	{
+		double newRemainder = remainder % NICKEL_VALUE;
+		double numberOfNickels = (remainder - newRemainder) / NICKEL_VALUE;
+		System.out.println("nickels: "+ numberOfNickels);
+		if(newRemainder > 0)
+		{
+			remainder = newRemainder;
+		}	
+		return numberOfNickels;
+	}
+	
+	public double returnPennies()
+	{
+		double newRemainder = Math.round(remainder % PENNY_VALUE);
+		double numberOfPennies = (remainder - newRemainder) / PENNY_VALUE;
+		System.out.println("pennies: "+ numberOfPennies);
+		remainder = newRemainder;
+		return numberOfPennies;
 	}
 	
 	final double DOLLAR_VALUE = 1;
@@ -80,5 +168,4 @@ public class CashRegister
 	final double NICKEL_VALUE = .05;
 	final double PENNY_VALUE = .01;
 
-	
 }
