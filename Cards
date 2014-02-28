@@ -1,0 +1,28 @@
+public class Cards 
+{
+private char firstChar;
+private char secondChar;
+
+public String Cards()
+	{
+	
+	}
+
+public void LetterValues(String userInput) //analyzes a string and sets first and second chars
+	{
+		String first, second;
+		first.substring(arg0);
+		secon.substring(); 
+	}
+
+public void analizeFirstChar() //prints Card Values and face cards
+	{
+	
+	}
+
+public void analyzeSecondChar() //prints Diamonds Hearts Spades or Clubs
+	{
+	
+	}
+
+}
