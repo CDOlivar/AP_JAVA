@@ -1,0 +1,30 @@
+
+public class TimeSheet 
+{	
+	private String name;
+	private double wage;
+	private double hours;
+	
+	public TimeSheet(String nameInput, double wageInput, double hoursInput)
+		{
+			name = nameInput;
+			wage = wageInput;
+			hours = hoursInput;
+		}
+	
+	public double paycheck()
+		{
+			double finalPaycheck;
+			if(hours > 40)
+				{
+					hours -= 40;
+					finalPaycheck = (40 * wage) + (hours * (wage * 1.5) );
+				}
+			else
+				{
+					finalPaycheck = hours * wage;	
+				}
+			System.out.println( name + ", your paycheck for this week amounts to: " + finalPaycheck );
+		}
+	
+}
