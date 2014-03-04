@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class timesheetTester 
+{
+	public static void main(String argsp[])
+		{
+			Scanner input = new Scanner(System.in);
+			
+			System.out.println("Hello new employee! Please type in your name and hit 'enter':");
+			String name = input.nextLine();
+			
+			System.out.println("okay, " + name + ", please enter the amount of hours you worked this week");
+			double hours = input.nextDouble();
+			
+			System.out.println("now how much do you get paid per hour?");
+			double wage = input.nextDouble();
+			
+			TimeSheet newEmployee = new TimeSheet(name, wage, hours);
+			System.out.println(name +", your paycheck for this week amounts to: " + newEmployee.paycheck() );
+		}
+}
