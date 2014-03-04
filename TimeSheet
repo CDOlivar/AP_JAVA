@@ -24,7 +24,7 @@ public class TimeSheet
 				{
 					finalPaycheck = hours * wage;	
 				}
-			System.out.println( name + ", your paycheck for this week amounts to: " + finalPaycheck );
+			return finalPaycheck;
 		}
 	
 }
