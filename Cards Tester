@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class CardsTester 
+{
+	public static void main(String args[])
+		{
+			Scanner userInput = new Scanner(System.in);
+			
+			Cards newCard = new Cards();
+			System.out.println("Enter the card notation");
+			String card = userInput.nextLine();
+			
+			System.out.println(card);
+			
+			String firstChar = card.substring(0,1) ;
+			String tenTester = card.substring(0,2);
+			String secondChar = card.substring(1,2);
+			
+			if(Cards.isNumeric(tenTester) && Integer.parseInt(tenTester) == 10)
+				{
+					Cards.analyzeFirstChar(tenTester);
+					secondChar = card.substring(2,3);
+				}
+		    else if(Cards.isNumeric(firstChar) )
+		    	{
+		    		Cards.analyzeFirstChar(firstChar);
+		    	}
+		    else if(firstChar.equalsIgnoreCase("a") || firstChar.equalsIgnoreCase("k") || firstChar.equalsIgnoreCase("q") || firstChar.equalsIgnoreCase("j"))
+		    	{
+		    		Cards.analyzeFirstChar2(firstChar);
+		    	}
+		    else
+		    	{
+		    		System.out.println("invalid input");
+		    	}
+			
+			System.out.print(" of ");
+			Cards.analyzeSecondChar(secondChar);
+		}	
+}
