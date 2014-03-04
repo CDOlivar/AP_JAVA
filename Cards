@@ -1,28 +1,114 @@
 public class Cards 
-{
-private char firstChar;
-private char secondChar;
-
-public String Cards()
 	{
+		public Cards()
+			{
+			
+			}
 	
+		
+		
+		public static void analyzeFirstChar(String firstString) //prints Card Values
+			{	
+				String firstChar = firstString;
+				boolean withinLimits = false;
+				
+				while(withinLimits)
+				if(Integer.parseInt(firstChar) == 1 )
+					{
+						System.out.print("1");
+					}
+				else if(Integer.parseInt(firstChar) == 2 )
+					{
+						System.out.print("2");
+					}
+				else if(Integer.parseInt(firstChar) == 3 )
+					{
+						System.out.print("3");
+					}
+				else if(Integer.parseInt(firstChar) == 4 )
+					{
+						System.out.print("4");
+					}
+				else if(Integer.parseInt(firstChar) == 5 )
+					{
+						System.out.print("5");
+					}
+				else if(Integer.parseInt(firstChar) == 6 )
+					{
+						System.out.print("6");
+					}
+				else if(Integer.parseInt(firstChar) == 7 )
+					{
+						System.out.print("7");
+					}
+				else if(Integer.parseInt(firstChar) == 8 )
+					{
+						System.out.print("8");
+					}
+				else if(Integer.parseInt(firstChar) == 9 )
+					{
+						System.out.print("9");
+					}
+				else if(Integer.parseInt(firstChar) == 10 )
+					{
+						System.out.print("10");
+					}
+				
+			}
+		
+		public static void analyzeFirstChar2(String firstString) //prints Face Cards
+		
+			{
+				String firstChar = firstString;
+				if(firstChar.equalsIgnoreCase("a") )
+					{
+						System.out.print("Ace");
+					}
+				else if(firstChar.equalsIgnoreCase("a"))
+					{
+						System.out.print("Jack");
+					}
+				else if(firstChar.equalsIgnoreCase("k"))
+					{
+						System.out.print("King");
+					}
+				else if(firstChar.equalsIgnoreCase("q"))
+					{
+						System.out.print("Queen");
+					}
+				}
+				
+		public static void analyzeSecondChar(String secondString) //prints Diamonds Hearts Spades or Clubs
+			{
+				String secondCharacter = secondString;
+				if(secondCharacter.equalsIgnoreCase("d") )
+					{
+						System.out.print("Diamonds");
+					}
+				else if(secondCharacter.equalsIgnoreCase("h"))
+					{
+						System.out.print("Hearts");
+					}
+				else if(secondCharacter.equalsIgnoreCase("s"))
+					{
+						System.out.print("Spades");
+					}
+				else if(secondCharacter.equalsIgnoreCase("c"))
+					{
+						System.out.print("Clubs");
+					}	
+			}
+		
+		public static boolean isNumeric(String str)
+		{
+		try  
+		  {  
+		    double d = Double.parseDouble(str);  
+		  }  
+		  catch(NumberFormatException nfe)  
+		  {  
+		    return false;  
+		  }  
+		  return true;  
+		}
 	}
-
-public void LetterValues(String userInput) //analyzes a string and sets first and second chars
-	{
-		String first, second;
-		first.substring(arg0);
-		secon.substring(); 
-	}
-
-public void analizeFirstChar() //prints Card Values and face cards
-	{
-	
-	}
-
-public void analyzeSecondChar() //prints Diamonds Hearts Spades or Clubs
-	{
-	
-	}
-
-}
