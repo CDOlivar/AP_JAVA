@@ -4,37 +4,63 @@ public class CardsTester
 {
 	public static void main(String args[])
 		{
-			Scanner userInput = new Scanner(System.in);
+			boolean running = true;
 			
-			Cards newCard = new Cards();
-			System.out.println("Enter the card notation");
-			String card = userInput.nextLine();
-			
-			System.out.println(card);
-			
-			String firstChar = card.substring(0,1) ;
-			String tenTester = card.substring(0,2);
-			String secondChar = card.substring(1,2);
-			
-			if(Cards.isNumeric(tenTester) && Integer.parseInt(tenTester) == 10)
+			while(running == true)
+			{		    
+			    Scanner userInput = new Scanner(System.in);
+				String firstChar = "0a";
+				String secondChar = "0a";
+				Cards newCard = new Cards();
+				
+				boolean asking = true;
+				while(asking == true)
 				{
-					Cards.analyzeFirstChar(tenTester);
-					secondChar = card.substring(2,3);
+					String card = null;
+					System.out.println("Enter the card notation");
+					card = userInput.nextLine();
+					
+					if(card.length() == 2)
+						{
+							firstChar = card.substring(0,1) ;
+							
+							secondChar = card.substring(1);
+							asking = false;
+						}
+					else if(card.length() == 3)
+						{
+							firstChar = card.substring(0,2) ;
+							secondChar = card.substring(2);
+							asking = false;
+						}
+					else
+						{
+							System.out.println("Incorrect Input\nPlease Input the Face Value and the first letter of Suit");
+						}
 				}
-		    else if(Cards.isNumeric(firstChar) )
-		    	{
-		    		Cards.analyzeFirstChar(firstChar);
-		    	}
-		    else if(firstChar.equalsIgnoreCase("a") || firstChar.equalsIgnoreCase("k") || firstChar.equalsIgnoreCase("q") || firstChar.equalsIgnoreCase("j"))
-		    	{
-		    		Cards.analyzeFirstChar2(firstChar);
-		    	}
-		    else
-		    	{
-		    		System.out.println("invalid input");
-		    	}
-			
-			System.out.print(" of ");
-			Cards.analyzeSecondChar(secondChar);
+				
+				String faceValue = Cards.analyze(firstChar);
+				
+				String suit = Cards.analyze(secondChar);
+				
+				System.out.println(faceValue + " of " + suit);
+				
+				
+				
+				boolean comp = false;
+						while(comp == false){
+							System.out.println("Continue?");
+							String done = userInput.nextLine();
+							
+				if(done.equalsIgnoreCase("Yes")){
+						System.out.println("Repeating");
+						comp = true;}
+				else if(done.equalsIgnoreCase("No")){
+						System.out.println("k.thx.bye.");
+					running = false;
+						comp = true;}
+				else
+					System.out.println("Incorrect Input\nPlease Enter Yes Or No");						}
+				}	
 		}	
 }
