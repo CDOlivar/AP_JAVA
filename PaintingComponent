@@ -1,0 +1,40 @@
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.geom.Point2D;
+import javax.swing.JPanel;
+import javax.swing.JComponent;
+
+public class PaintingComponent extends JComponent 
+{
+	public int x1=500,y1=100,x2=500,y2=400;
+	public int CHANGE = 300;
+	
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		//for( int i=0; i<10; i++)
+		//{
+			drawOuterBox(g);
+			
+		//}
+	}
+	
+	private void drawOuterBox(Graphics g2)
+	{
+		g2.drawLine(x1, y1, x2, y2);
+		
+		x1 = x2;
+		y1 = y2;
+		g2.drawLine(x1, y1, x2, y2);
+		
+		
+		g2.drawLine(x1, y1, x2, y2);
+		
+		
+		g2.drawLine(x1, y1, x2, y2);
+		
+	}
+	
+	
+}
